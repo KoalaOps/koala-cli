@@ -5,11 +5,11 @@
 class Koala < Formula
   desc "CLI for Koala Ops."
   homepage "https://www.koalaops.com"
-  version "1.1.8"
+  version "1.1.232"
 
   on_macos do
-    url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.8/koala_cli_Darwin_all"
-    sha256 "40dc1dda597bf5b68a3f7d793395c131b5807990d0f92476d82e95ccaedcf924"
+    url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.232/koala_cli_Darwin_all"
+    sha256 "25a90513dc348be6f6b4c7a9d04cc009a4428ad179e929206948823aee134906"
 
     def install
       bin.install "koala_cli_Darwin_all" => "koala"
@@ -17,20 +17,20 @@ class Koala < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.8/koala_cli_Linux_x86_64"
-      sha256 "25c0b93867736746f0e4ed5be87059a2c051fc421d38ab62d73e281e1038237d"
-
-      def install
-        bin.install "koala_cli_Linux_x86_64" => "koala"
-      end
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.8/koala_cli_Linux_arm64"
-      sha256 "6eff3acbeafe50b67dc5dba29da34002b211627404c1b2f8fa8ce17d3ddfd2bf"
+      url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.232/koala_cli_Linux_arm64"
+      sha256 "f042d8ed7eb70496a3abd9273b3afe215f619ed9de2557bf409ff7d96860842c"
 
       def install
         bin.install "koala_cli_Linux_arm64" => "koala"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/KoalaOps/koala-cli/releases/download/1.1.232/koala_cli_Linux_x86_64"
+      sha256 "26ff5482ea80cb7858c40f3d214746bd12d530e71a7bd956dd686a7234cca350"
+
+      def install
+        bin.install "koala_cli_Linux_x86_64" => "koala"
       end
     end
   end
